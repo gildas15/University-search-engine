@@ -55,4 +55,4 @@ consideration that Africa continent is our target.
 
 [4] Result page:
 
-
+result.png
