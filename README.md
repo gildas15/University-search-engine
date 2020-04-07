@@ -1,4 +1,4 @@
-University Search Engine
+﻿University Search Engine
 
 This project was developt as my final year project in 2019 during my bachelor degree program
 ========================
@@ -36,3 +36,23 @@ The objectives of the project are:
 The search engine is build to work for the following countriesin africa: Senegal,South Africa, cameroon, Ivory coast.
 However, the project can be scale in the future to extend the number of users by taking into
 consideration that Africa continent is our target.
+
+
+
+
+
+
+
+
+
+[3] Search page:
+
+
+
+
+
+
+
+[4] Result page:
+
+
