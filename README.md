@@ -47,12 +47,8 @@ consideration that Africa continent is our target.
 
 [3] Search page:
 
-
-
-
-
-
+![](search.png)
 
 [4] Result page:
 
-result.png
+![](result.png)
