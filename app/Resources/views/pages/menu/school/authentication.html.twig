@@ -1,0 +1,38 @@
+
+{% block body %}
+<div >
+          
+    <h3>List of Universities that show interested to some student</h3>
+             
+                      <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                          <tr >
+                            <th class="column-title no-link last"><span class="nobr">Actions</span>
+                            </th>
+                            <th class="column-title">University Name</th>
+                            <th class="column-title">University email </th>
+                            
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for school in schoolsList %}
+                          <tr class="even pointer">
+                             <td>
+                            <ul>
+                                <li>
+                                <a href="#" class="btn btn-success">valid</a>
+                                </li>
+                              
+                            </ul>
+                            </td>
+                            <td class=" ">{{ school.universityName }}</td>
+                            <td class=" ">{{ school.contactEmail }}</td>
+                          
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                   
+</div>
+{% endblock %}

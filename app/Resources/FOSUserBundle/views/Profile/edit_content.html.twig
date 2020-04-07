@@ -1,0 +1,29 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% form_theme form with ['MisdPhoneNumberBundle:Form:tel_bootstrap.html.twig'] %}
+{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+<img src="{{ asset('uploads/profiles/scholarsProfiles/' ~ app.user.scholarProfile) }}" alt="profile picture" width="200px"/>    
+{{ form_errors(form.scholarProfileFile) }}
+{{ form_widget(form.scholarProfileFile) }}
+<h4>Personal information</h4>
+{{ form_row(form.username) }}
+{{ form_row(form.email) }}
+{{ form_row(form.dateOfBirth) }}
+{{ form_row(form.sex) }}
+{{ form_row(form.phone_number) }}
+{{ form_row(form.currentAddress) }}
+<h4>Information about your most recent studies</h4>
+{{ form_row(form.currentCountryOfStudy) }}
+{{ form_row(form.recentSchoolStudy) }}
+{{ form_row(form.recentLevelStudy) }}
+{{ form_row(form.currentStudyArea) }}
+{{ form_row(form.appreciation) }}
+<h4>Information about your target studies</h4>
+{{ form_row(form.targetCountryOfStudy) }}
+{{ form_row(form.targetDegree) }}
+{{ form_row(form.targetStudyArea) }}
+{{ form_rest(form) }}
+    <div>
+        <input class="btn btn-primary" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+    </div>
+    
+{{ form_end(form) }}

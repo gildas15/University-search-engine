@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- banner -->
+    {% block banner %}
+    {{ include('includes/banner.html.twig') }}
+    {% endblock %}
+    <!-- end banner  -->
+
+    <!-- feature -->
+    {% block feature %}
+    {{ include('includes/feature.html.twig') }}
+    {% endblock %}
+    <!-- end feature  -->
+
+     <!-- popular post -->
+     {% block popularPost %}
+     {{ include('includes/popularPost.html.twig') }}
+     {% endblock %}
+     <!-- end popular post  -->
+
+      <!-- feature cat -->
+      {% block featureCat %}
+      {{ include('includes/feature-cat.html.twig') }}
+      {% endblock %}
+      <!-- end feature cat  -->
+
+       <!-- post area -->
+       {% block postArea %}
+       {{ include('includes/postArea.html.twig') }}
+       {% endblock %}
+       <!-- end post area  -->
+
+{% endblock %}

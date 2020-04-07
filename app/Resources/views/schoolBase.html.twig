@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Educational Platform{% endblock %}</title>
+        {% block stylesheets %}
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+        {% stylesheets 'bundles/app/css/*' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+         <!-- header content -->
+         {% block header %}
+         {{ include('includes/header.html.twig') }}
+         {% endblock %}
+         <!-- header content -->
+          <!-- banner -->
+          {% block banner %}
+          {{ include('includes/bannerOther.html.twig') }}
+          {% endblock %}
+          <!-- banner-->
+        {% block body %}{% endblock %}
+        <!-- footer content -->
+        {% block footer %}
+        {{ include('includes/footer.html.twig') }}
+        {% endblock %}
+        <!-- footer content -->
+        {% block javascripts %}
+            <script src="{{ asset('bundles/app/js/jquery-2.2.4.min.js') }}"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>	
+            <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+            <script src="{{ asset('bundles/app/js/easing.min.js') }}"></script>
+            <script src="{{ asset('bundles/app/js/hoverIntent.js') }}"></script>
+            <script src="{{ asset('bundles/app/js/superfish.min.js') }}"></script>
+            <script src="{{ asset('bundles/app/js/jquery.ajaxchimp.min.js') }}"></script>
+            <script src="{{ asset('bundles/app/js/jquery.magnific-popup.min.js') }}"></script>
+            <script src="{{ asset('bundles/app/js/owl.carousel.min.js') }}"></script>
+            <script src="{{ asset('bundles/app/js/jquery.sticky.js') }}"></script>
+            <script src="{{ asset('bundles/app/js/jquery.nice-select.min.js') }}"></script>
+            <script src="{{ asset('bundles/app/js/parallax.min.js') }}"></script>
+            <script src="{{ asset('bundles/app/js/mail-script.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

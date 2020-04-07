@@ -1,0 +1,12 @@
+
+app_student:
+    resource: "@AppBundle/Resources/config/routing/student.yml"
+    prefix:   /student
+
+app_university:
+    resource: "@AppBundle/Resources/config/routing/university.yml"
+    prefix:   /university
+
+app_houseOwner:
+    resource: "@AppBundle/Resources/config/routing/houseOwner.yml"
+    prefix:   /houseOwner

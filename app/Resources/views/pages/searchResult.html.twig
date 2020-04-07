@@ -1,0 +1,71 @@
+{% extends 'schoolBase.html.twig' %}
+
+{% block body %}
+<div class="seachResult container banner-content ">
+    {{ form_start(search_form,{ 'attr': { 'class' : 'search-form-area', 'role' : 'form' }}) }}
+    <div class="row justify-content-center form-wrap">
+        <div class="col-lg-4 form-cols">
+        {{ form_widget(search_form.AreaOfStudy, {'value' : app.request.get('AreaOfStudy')})}}
+        </div>
+        <div class="col-lg-3 form-cols">
+            <div class="default-select" id="default-selects">
+                {{ form_widget(search_form.degree, {'value' : app.request.get('degree')}) }}
+            </div>
+        </div>
+        <div class="col-lg-3 form-cols">
+            <div class="default-select" id="default-selects2">
+                {{ form_widget(search_form.country, {'value' : app.request.get('country')}) }}
+            </div>										
+        </div>
+        <div class="col-lg-2 form-cols">
+            <button type="submit" class="btn btn-info">
+            <span class="lnr lnr-magnifier"></span> Search
+            </button>
+        </div>	
+  						
+    </div><br><br><br>
+    {{ form_end(search_form) }} 	
+    <!-- search reuslt-->
+    {% for search_result in search_results %}
+    <div class="row school-result">
+            <div class="col-lg-4 school-logo">
+            <img width="180px" src="http://{{search_result.schoolLogo }}" alt="school logo">
+            </div>
+            <div class="col-lg-8 school-details"> 
+                    <div class="school-name">
+                        <a href="{{path('schoolContent', {'website':search_result.schoolDomainName, 'content':search_result.internationalStundent, 'schoolName':search_result.schoolName,'schoolJob':search_result.jobOfferingContent}) }}">{{ search_result.schoolName }}</a>
+                    </div>
+                    <div class="actions">
+                        <ul>
+                        <li><a class="btn btn-info" data-toggle="collapse" data-target="#{{search_result.schoolName|split(' ')[0] }}" aria-expanded="false" aria-controls="{{search_result.schoolName|split(' ')[0] }}">share</a></li>
+                        <li><a class="btn btn-info" href="{{path('sendInvitation', {'AreaOfStudy':app.request.get('AreaOfStudy'), 'degree':app.request.get('degree'), 'country':app.request.get('country'), 'schoolEmail':search_result.contactEmail,'schoolName':search_result.schoolName}) }}">invite this University to join you here</a></li>
+                        <li> <a class="btn btn-info" href="{{path('saveSchool', {'AreaOfStudy':app.request.get('AreaOfStudy'), 'degree':app.request.get('degree'), 'country':app.request.get('country'), 'schoolEmail':search_result.contactEmail,'schoolName':search_result.schoolName,'DomainName':search_result.schoolDomainName, 'schoolLogo':search_result.schoolLogo}) }}">save</a></li>
+                        <li> <a target="_blank" class="btn btn-info" href="http://{{search_result.schoolDomainName}}" >Visit Website</a></li>
+                        </ul>
+                    </div>   
+                             
+                <!-- /# card -->
+            </div>
+    </div>
+    <div class="collapse shareSchool" id="{{ search_result.schoolName|split(' ')[0] }}">
+        <div class="card card-body">
+        {% set form =  share_form.createView %}
+        {{ form_start(form,{ 'attr': {'role' : 'form' }}) }}
+            {{form_row(form.schoolName, {'value':search_result.schoolName})}}
+            {{form_row(form.website, {'value':search_result.schoolDomainName})}}
+            <!--hidden for search field-->
+            {{form_row(form.AreaOfStudy, {'value':app.request.get('AreaOfStudy')})}}
+            {{form_row(form.degree, {'value':app.request.get('degree')})}}
+            {{form_row(form.country, {'value':app.request.get('country')})}}
+            {{ form_rest(form) }}
+            <input type="submit" value="Share" class="btn btn-info"/>
+        {{ form_end(form) }}
+        </div>
+    </div>
+    <hr class="br">
+    {% endfor %}
+    
+</div>
+<br><br><br><br>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+university_index:
+    path:     /
+    defaults: { _controller: "AppBundle:universityMenu:index" }
+    methods:  GET
+
+university_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:universityMenu:show" }
+    methods:  GET
+
+university_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:universityMenu:edit" }
+    methods:  [GET, POST]

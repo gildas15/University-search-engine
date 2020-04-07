@@ -1,0 +1,9 @@
+
+.student-menu {
+padding-top: 30px;
+
+}
+
+.student-menu .student-universities table tbody ul td li {
+list-style: none;  
+}

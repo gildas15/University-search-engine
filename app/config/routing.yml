@@ -1,0 +1,47 @@
+app:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /menu
+
+#fos user
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Home:index }
+
+crawler:
+    path:  crawler
+    defaults: { _controller: AppBundle:Crawler:crawler }
+
+
+result:
+    path:     result/{AreaOfStudy}/{degree}/{country}
+    defaults: { _controller: AppBundle:Home:search }
+    methods:  [GET, POST]
+
+schoolContent:
+    path:  university/content/{website}/{content}/{schoolName}/{schoolJob}
+    defaults: { _controller: AppBundle:Home:content }
+
+saveSchool:
+    path:  save/university/{AreaOfStudy}/{degree}/{country}\{schoolEmail}\{schoolName}\{DomainName}\{schoolLogo}
+    defaults: { _controller: AppBundle:Home:save }
+    methods:  [GET]
+    requirements:
+        schoolLogo:  '[a-zA-Z0-9-_\/\-\s.^]+'
+
+sendInvitation:
+    path:  send/invitation/{AreaOfStudy}/{degree}/{country}/{schoolEmail}/{schoolName}
+    defaults: { _controller: AppBundle:Home:invitation }
+    methods:  [GET] 
+
+
+test:
+    path:  test
+    defaults: { _controller: AppBundle:Test:test }
+
+
+school_authentication: 
+    path: school/authentication
+    defaults: { _controller: AppBundle:School:authentication }

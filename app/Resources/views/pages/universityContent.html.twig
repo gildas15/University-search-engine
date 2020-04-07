@@ -1,0 +1,29 @@
+{% extends 'schoolBase.html.twig' %}
+
+{% block body %}
+<div class="container schoolContent">
+    <div class="row international-student">
+        <p>Look how <span>{{schoolName}}</span> give value to international student</p>
+        <div class="col-xs-12 col-lg-12 international-student-about">
+            {{content}}
+        </div>
+    </div>
+
+    <div class="row job-financial-aid-support">
+            <p></p>
+            <div class="col-xs-12 col-lg-12 international-student-about">
+                {% block opportunity %}
+                    {{ include('includes/calto-action.html.twig') }}
+                {% endblock %}
+            </div>
+    </div>
+    <div class="row school-website">
+        {% block schoolDetails %}
+            {{ include('includes/schoolWebsite.html.twig') }}
+        {% endblock %}
+    </div>
+    
+</div>
+<br><br><br><br>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+university_interest_index:
+    path:     /
+    defaults: { _controller: "AppBundle:studentMenu:index" }
+    methods:  GET
+
+university_interest_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:studentMenu:delete" }
+    methods:  DELETE

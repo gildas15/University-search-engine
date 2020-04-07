@@ -1,0 +1,33 @@
+{% extends 'MenuBase.html.twig' %}
+
+{% block body %}
+<div class="container student-menu">
+<div class="row">
+    <div class="col-xs-12 col-lg-8 student-universities">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Your Universities of interest</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+            <ul>
+            {% for universityInterest in universitiesInterest %}
+                <tr>
+                <td><li><a href="#">{{ universityInterest.UniversityName}}</a></li></td>
+                </tr>
+            {% endfor %}
+            </ul>
+            
+        </tbody>
+    </table>
+    </div>
+    <div class="col-xs-12 col-lg-4 student-profile">
+        <a href="{{path('fos_user_profile_edit')}}"><i class="fa fa-edit fa-5x"></i> <br>update profile</a>
+    </div>
+
+</div>
+</div>
+{% endblock %}
+
